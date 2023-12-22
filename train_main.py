@@ -92,10 +92,10 @@ def main():
     date = datetime.datetime.now().strftime('%Y-%m-%dT%H-%M')
 
     # DDQN Baseline
-    baseline_main(total_episodes=total_episodes, date=date, basis='movement', render=render)
+    baseline_main(total_episodes=total_episodes, render=render)
 
     # DRDQN Baseline
-    baseline_main(total_episodes=total_episodes, date=date, basis='movement', render=render, recurrent=True)
+    baseline_main(total_episodes=total_episodes, render=render, recurrent=True)
 
     # DDQN Movement Curriculum
     curriculum_experiment_main(total_episodes=total_episodes, date=date, basis='movement', render=render)

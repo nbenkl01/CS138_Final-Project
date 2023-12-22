@@ -67,6 +67,7 @@ class ActorCritic(nn.Module):
         self.conv3 = nn.Conv2d(32, 32, 3, stride=2, padding=1)
         self.conv4 = nn.Conv2d(32, 32, 3, stride=2, padding=1)
         # Fully connected layers
+        self.linear = nn.Linear(32 * 6 * 6, 512)
         self.critic_linear = nn.Linear(512, 1)
         self.actor_linear = nn.Linear(512, num_actions)
         # Initialize weights
@@ -80,7 +81,7 @@ class ActorCritic(nn.Module):
             if isinstance(module, nn.Conv2d) or isinstance(module, nn.Linear):
                 nn.init.xavier_uniform_(module.weight)
                 nn.init.constant_(module.bias, 0)
-            elif isinstance(module, nn.LSTMCell):
+            elif isinstance(module, nn.Linear):
                 nn.init.constant_(module.bias_ih, 0)
                 nn.init.constant_(module.bias_hh, 0)
 
@@ -101,4 +102,5 @@ class ActorCritic(nn.Module):
         x = F.relu(self.conv2(x))
         x = F.relu(self.conv3(x))
         x = F.relu(self.conv4(x))
+        hx, cx = self.linear(x.view(x.size(0), -1), (hx, cx))
         return self.actor_linear(hx), self.critic_linear(hx), hx, cx

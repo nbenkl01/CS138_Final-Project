@@ -86,7 +86,7 @@ This will initiate the training process for the DDQN, A3C, and PPO agents.
 
 ### Testing
 ---
-To evaluate the trained agents, move the final checkpoints for each of the DDQN models from the `./checkpoints` directory which will have been created during training to a new, first-level, directory titled 'final_models', and run:
+To evaluate the trained agents, move the final checkpoints (files ending in `.chkpt`) for each of the DDQN models from the `./checkpoints` directory which will have been created during training to a new, first-level, directory titled 'final_models', and run:
 
 ``` bash
 python test_main.py

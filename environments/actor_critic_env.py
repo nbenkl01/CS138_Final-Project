@@ -72,7 +72,7 @@ def create_train_env_AC(world, stage, action_type):
 
 # Class to manage multiple environments in parallel
 class MultipleEnvironments:
-    def __init__(self, world, stage, action_type, num_envs, output_path=None):
+    def __init__(self, world, stage, action_type, num_envs):
         """
         Initializes the MultipleEnvironments class.
 
@@ -81,7 +81,6 @@ class MultipleEnvironments:
         - stage (int): Stage number.
         - action_type (str): Type of actions to use.
         - num_envs (int): Number of parallel environments.
-        - output_path: Path for output (not specified in the original code).
         """
         # Create communication pipes between agent and environments
         self.agent_conns, self.env_conns = zip(*[mp.Pipe() for _ in range(num_envs)])
@@ -93,7 +92,7 @@ class MultipleEnvironments:
         else:
             actions = COMPLEX_MOVEMENT
         # Create a list of training environments with custom wrappers
-        self.envs = [create_train_env(world, stage, actions, output_path=output_path) for _ in range(num_envs)]
+        self.envs = [create_train_env(world, stage, actions) for _ in range(num_envs)]
         self.num_states = self.envs[0].observation_space.shape[0]
         self.num_actions = len(actions)
         # Start separate processes for each environment

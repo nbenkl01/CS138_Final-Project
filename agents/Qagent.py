@@ -1,7 +1,7 @@
 import torch
 import random
 import numpy as np
-from Qnetworks import DDQN, DRDQN
+from agents.Qnetworks import DDQN, DRDQN
 from collections import deque
 
 class Mario:
