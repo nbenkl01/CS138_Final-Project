@@ -2,7 +2,7 @@
 ## Exploring Deep Reinforcement Learning in Super Mario Bros.
 ### Noam Benkler
 ---
-This repository accompanies the final project paper titled "How to Teach a Plumber? Reinforcement Learning in Super Mario Bros." by Noam Benkler. The project focuses on employing various reinforcement learning (RL) techniques, including Double Deep Q-Networks (DDQN) and Actor-Critic methods, within the Super Mario Bros. video game environment. The codebase provides implementations of different RL agents, environments, trainers, and evaluators to facilitate comprehensive experiments and evaluations.
+This repository accompanies the final project paper titled "How to Teach a Plumber? Reinforcement Learning in Super Mario Bros.". The project focuses on employing various reinforcement learning (RL) techniques, including Double Deep Q-Networks (DDQN) and Actor-Critic methods, within the Super Mario Bros. video game environment. The codebase provides implementations of different RL agents, environments, trainers, and evaluators to facilitate comprehensive experiments and evaluations.
 
 
 # Table of Contents
